@@ -57,12 +57,13 @@ export default {
         .catch((error) => console.log(error));
     },
   },
-  mounted(){
-    const user=localStorage.getItem('user_info')
+  mounted(){ 
+    const user = localStorage.getItem('user_info')
     if(user){
         this.$router.push({ name: "Home" });
     }
   }
+  
 };
 </script>
 
