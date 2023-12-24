@@ -1,0 +1,19 @@
+{
+  "users": [
+    {
+      "first_name": "Hasin",
+      "last_name": "Arman",
+      "email": "chayan@gmail.com",
+      "password": "123",
+      "id": 1
+    }
+  ],
+  "restaurants": [
+    {
+      "name": "asd updated new",
+      "address": "asd",
+      "contact": "asd",
+      "id": 1
+    }
+  ]
+}

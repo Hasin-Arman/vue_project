@@ -13,7 +13,7 @@
         v-model="formValue.contact"
         placeholder="Enter Contact"
       />
-      <button type="button" @click="AddMethod">Submit</button>
+      <button type="button" @click="updateMethod">Submit</button>
     </form>
   </div>
 </template>
@@ -35,13 +35,30 @@ export default {
       },
     };
   },
+  methods:{
+    updateMethod(){
+      axios
+        .put("http://localhost:3000/restaurants/"+this.$route.params.id, {
+          name: this.formValue.name,
+          address: this.formValue.address,
+          contact: this.formValue.contact,
+        })
+        .then((response) => {
+          if (response.status == 200) {
+            this.$router.push({ name: "Home" });
+          }
+        });
+    }
+  },
   mounted() {
     const user = localStorage.getItem("user_info");
     if (!user) {
       this.$router.push({ name: "SignUp" });
     }
     axios.get('http://localhost:3000/restaurants/'+this.$route.params.id)
-    .then(res => console.log(rse))
+    .then(res =>{
+      this.formValue=res.data
+    })
   },
 };
 </script>
