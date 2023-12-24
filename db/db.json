@@ -10,10 +10,10 @@
   ],
   "restaurants": [
     {
-      "name": "asd updated new",
-      "address": "asd",
-      "contact": "asd",
-      "id": 1
+      "name": "Burger King new",
+      "address": "dhaka",
+      "contact": "0123123",
+      "id": 2
     }
   ]
 }

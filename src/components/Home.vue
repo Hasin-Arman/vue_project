@@ -1,7 +1,7 @@
 <template>
   <div>
     <HeaderPage />
-    <h1>Hello {{ first_name }} {{ last_name }}, Welcome To The Home Page</h1>
+    <h1 style="text-align:center">Hello {{ first_name }} {{ last_name }}, Welcome To The Home Page</h1>
     <table class="AddTable">
       <th>ID</th>
       <th>Name</th>
@@ -13,7 +13,7 @@
         <td>{{ res.name }}</td>
         <td>{{ res.contact }}</td>
         <td>{{ res.address }}</td>
-        <td><router-link :to="'/update/' + res.id">update</router-link> <button @click="deleteMethod(res.id)">Delete</button></td>
+        <td><button><router-link  style="text-decoration:none;color:black;" :to="'/update/' + res.id">update</router-link> </button> <button @click="deleteMethod(res.id)">Delete</button></td>
         
       </tr>
     </table>
@@ -54,12 +54,14 @@ export default {
   },
   mounted() {
     const user = localStorage.getItem("user_info");
-    this.first_name = JSON.parse(user).first_name;
-    this.last_name = JSON.parse(user).last_name;
     if (!user) {
       this.$router.push({ name: "SignUp" });
     }
-    this.loadData();
+    else{
+      this.first_name = JSON.parse(user).first_name;
+      this.last_name = JSON.parse(user).last_name;
+      this.loadData();
+    }
   },
 };
 </script>
@@ -72,5 +74,8 @@ td {
   border-collapse: collapse;
   padding: 10px;
   border-color: #96d4d4;
+}
+table{
+  margin: auto;
 }
 </style>
